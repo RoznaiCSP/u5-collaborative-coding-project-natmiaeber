@@ -3,7 +3,8 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "myExtension": "pkg:myExtension.json"
+        "myExtension": "pkg:myExtension.json",
+        "controller": "*"
     },
     "files": [
         "main.blocks",
