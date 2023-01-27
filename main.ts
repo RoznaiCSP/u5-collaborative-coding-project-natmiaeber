@@ -1,4 +1,6 @@
-// Don't forget to comment your code as you work!
+/**
+ * Don't forget to comment your code as you work!
+ */
 let mySprite: Sprite = null
 let customer = ""
 let server = game.askForString("What drink would you like to have?")
