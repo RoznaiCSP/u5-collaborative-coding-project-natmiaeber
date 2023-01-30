@@ -4,7 +4,9 @@
     "dependencies": {
         "device": "*",
         "myExtension": "pkg:myExtension.json",
-        "controller": "*"
+        "controller": "*",
+        "multiplayer": "*",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24"
     },
     "files": [
         "main.blocks",
@@ -17,7 +19,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.11.37",
+        "target": "1.12.17",
         "targetId": "arcade"
     },
     "supportedTargets": [
