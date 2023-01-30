@@ -488,7 +488,6 @@ customer.setPosition(100, 109)
 reservaition("What is the name for the table?")
 server.setPosition(77, 72)
 customer.setPosition(96, 100)
-game.splash("Thank you for choosing The best resturant in Chicago! see you soon!")
 let customerSay = game.askForString("What drink would you like to have?")
 if (customerSay == "Water") {
     mySprite = sprites.create(img`
@@ -528,4 +527,9 @@ if (customerSay == "Water") {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Player)
+}
+for (let index = 0; index < 3; index++) {
+    game.splash("Thank you for choosing The best resturant in Chicago! see you soon!")
+    pause(2000)
+    game.splash("play again")
 }
