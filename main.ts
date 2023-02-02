@@ -80,7 +80,10 @@ function reservaition (question: string) {
     server.setVelocity(100, 0)
     customer.follow(server)
 }
-let mySprite: Sprite = null
+let dessert: Sprite = null
+let otherDrink: Sprite = null
+let water: Sprite = null
+let customerSay = ""
 let customer: Sprite = null
 let server: Sprite = null
 scene.setBackgroundImage(img`
@@ -482,9 +485,9 @@ server = sprites.create(img`
     ....................................................................................................
     `, SpriteKind.Player)
 server.setPosition(80, 87)
-let customerSay = game.askForString("What drink would you like to have?")
-if (customerSay == "Water") {
-    mySprite = sprites.create(img`
+let serverSay = game.askForString("What drink would you like to have?")
+if (customerSay == "water") {
+    water = sprites.create(img`
         ................................
         ................................
         ................................
@@ -518,8 +521,9 @@ if (customerSay == "Water") {
         ................................
         ................................
         `, SpriteKind.Player)
+    water.setPosition(70, 95)
 } else {
-    mySprite = sprites.create(img`
+    otherDrink = sprites.create(img`
         ................................
         ................................
         ................................
@@ -553,12 +557,58 @@ if (customerSay == "Water") {
         ................................
         ................................
         `, SpriteKind.Player)
+    otherDrink.setPosition(70, 95)
 }
+pause(3000)
 let isP = game.ask("would you like pizza or burger?", "A for pizza, B for burger")
 let mySprite2 = foodOrder(isP)
 mySprite2.setPosition(118, 92)
-for (let index = 0; index < 3; index++) {
-    game.splash("Thank you for choosing The best resturant in Chicago! see you soon!")
-    pause(2000)
-    game.splash("play again")
+pause(2000)
+let dessertOrder = game.askForString("Would you like dessert?", 3)
+if (dessertOrder == "yes") {
+    dessert = sprites.create(img`
+        ......................bbb.......
+        ....................bb333b......
+        .................bbb333d33b.....
+        ................bb333333d3a.....
+        ..............bb33332eeeedba....
+        ............bbb333323eee2e3a....
+        ..........bbd333333e22222ed3a...
+        .......bbbdd3333333e22222edda...
+        ......bb3d333333333be222eb3d3a..
+        ...bbb3dd33333333333beeeb33d3a..
+        ..b3ddd33333333333333333333dda..
+        bbddd3333333333333333333333dd3a.
+        b33dddddd3333333333333333333d3a.
+        bb3333333ddddd33333333333333dda.
+        bbbbbbb333dd33dddddddddd3333ddba
+        beeee3bbbbbb3333dd33333ddd33dd3a
+        beeeeeeeeeee3bbbbbbbb33333dddd3a
+        bdeeeeeeeeeeeeeeedddbaaaaab3d3ba
+        bbeeeeeeeeeeeeeeeeedddddddbb33ba
+        b3bb3eeeeeeeeeedeeeedeeeddddbbba
+        b33333bbb3eeddeeeeeeeeeeeeeeebba
+        beeeed333333bbb3eddddddeeeeeebba
+        bedeeeddeee3333bbbbb3dddddddeb3a
+        bedeeeeeeeeeeeedd3333bbbbbb3eb3a
+        bdedeeeeeedeeeeeddeeeeebbbbbbb3a
+        bbbeeddeeeeeeeeeeeeeeeeeeeeebb3a
+        ...bbbbddeeedddeeeedddddeeeedb3a
+        .......bbbbeeeeeededddeeeeeedb3a
+        ...........bbbbeeeeeeeeeeeeee33a
+        ...............bbbbdddeeeeeeb3ba
+        ...................bbbbdeeeb3ba.
+        .......................bbbaaaa..
+        `, SpriteKind.Player)
+    dessert.setPosition(55, 92)
+    pause(100)
+    game.splash("Here's your check: $$$")
+} else {
+    while (dessertOrder == "no") {
+        music.play(music.stringPlayable("G F G A - F E D ", 140), music.PlaybackMode.LoopingInBackground)
+    }
 }
+pause(2000)
+game.splash("Thank you for choosing The best resturant in Chicago! see you soon!")
+pause(2000)
+game.splash("Refresh to play again")
